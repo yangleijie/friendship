@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Flask示例</title>
+</head>
+   <body>
+
+      <table border = 1>
+         <thead>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>电话</td>
+            <td>每日薪水</td>
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td>{{row["name"]}}</td>
+               <td>{{row["age"]}}</td>
+               <td>{{row["telNum"]}}</td>
+               <td>{{row['salary']}}</td>    
+            </tr>
+         {% endfor %}
+      </table>
+
+      <a href = "/">返回主页</a>
+
+   </body>
+</html>

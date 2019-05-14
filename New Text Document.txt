@@ -1,0 +1,60 @@
+import sqlite3
+
+conn = sqlite3.connect('database.db')
+print ("Opened database successfully")
+
+conn.execute('CREATE TABLE students (name TEXT, addr TEXT, city TEXT, pin TEXT)')
+print ("Table created successfully")
+conn.close()
+
+
+
+create table StaffInfo (
+ 
+  name char(20),
+  age int (10),
+  telNum int(20),
+  salary float(10)  
+)
+
+create table attendance (
+ 
+  name char(20),
+  time int(10),
+  date Text
+ 
+)
+alter table attendance
+  add constraint pk_attPRIMARY KEY (name,date)
+
+
+create table attendance (
+ 
+  name char(20),
+  time int(10),
+  date Text,
+  primary key(name,date)
+ 
+)
+
+
+
+
+select name,sum (time) as time from attendance group by name  as a where 
+
+
+
+select name,salary from StaffInfo  as b
+
+select a.sum(time) * b.salary where a.name = b.name
+
+select ( (select name,sum (time) as time from attendance group by name ) as a.sum(time)*(select name,salary from StaffInfo) as b.salary) as f from a,b
+where a.name = b.name;
+
+select a.sum(time),b.salary from (select name,sum (time) as time from attendance group by name ) as a,(select name,salary from StaffInfo) as b where where a.name = b.name;
+
+select c.name,(c.time*c.salary)as amount from (select a.name, a.time,b.salary from (select name,sum (time) as time from attendance group by name)  as a,(select name,salary from StaffInfo) as b where a.name = b.name) as c
+
+
+
+
